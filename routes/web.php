@@ -6,7 +6,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\StudentController;
-
+use App\Http\Controllers\CardController;
 //home page
 Route::get('/', [TestController::class, 'index']);
 
@@ -48,4 +48,13 @@ Route::post('/student',  [StudentController::class, 'create']);
 Route::get('/student/{id}',  [StudentController::class, 'edit']);
 Route::put('/student/{id}',  [StudentController::class, 'update']);
 Route::delete('/student/remove/{id}',  [StudentController::class, 'remove']);
+
+
+//stud crud
+Route::get('/card', [CardController::class, 'index']);
+Route::get('/card/adding',  [CardController::class, 'adding']);
+Route::post('/card',  [CardController::class, 'create']);
+Route::get('/card/{id}',  [CardController::class, 'edit']);
+Route::put('/card/{id}',  [CardController::class, 'update']);
+Route::delete('/card/remove/{id}',  [CardController::class, 'remove']);
 
