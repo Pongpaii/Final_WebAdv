@@ -5,61 +5,73 @@
 @section('sidebarMenu')   
 @section('content')
 
-    <h3> :: form Update student :: </h3>
+    <h3> :: form Update card :: </h3>
 
-    <form action="/student/{{ $id }}" method="post" enctype="multipart/form-data">
+    <form action="/card/{{ $id }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
 
         <div class="form-group row mb-2">
-            <label class="col-sm-2"> student Name </label>
+            <label class="col-sm-2"> card Name </label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="student_name" required placeholder="student Name "
-                    minlength="3" value="{{ $student_name }}">
+                <input type="text" class="form-control" name="card_name" required placeholder="card Name "
+                    minlength="3" value="{{ $card_name }}">
                 @if(isset($errors))
-                @if($errors->has('student_name'))
-                <div class="text-danger"> {{ $errors->first('student_name') }}</div>
+                @if($errors->has('card_name'))
+                <div class="text-danger"> {{ $errors->first('card_name') }}</div>
                 @endif
                 @endif
             </div>
         </div>
         <div class="form-group row mb-2">
-            <label class="col-sm-2"> student code </label>
+            <label class="col-sm-2"> card number </label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="student_code" required placeholder="student_code "
-                    minlength="3" value="{{ $student_code }}">
+                <input type="text" class="form-control" name="card_number" required placeholder="card_number "
+                    minlength="3" value="{{ $card_number }}">
                 @if(isset($errors))
-                @if($errors->has('student_name'))
-                <div class="text-danger"> {{ $errors->first('student_code') }}</div>
+                @if($errors->has('card_number'))
+                <div class="text-danger"> {{ $errors->first('card_number') }}</div>
+                @endif
+                @endif
+            </div>
+        </div>
+       <div class="form-group row mb-2">
+            <label class="col-sm-2"> card rarity </label>
+            <div class="col-sm-7">
+                <input type="text" class="form-control" name="rarity" required placeholder="rarity"
+                    minlength="3" value="{{ $rarity }}">
+                @if(isset($errors))
+                @if($errors->has('rarity'))
+                <div class="text-danger"> {{ $errors->first('rarity') }}</div>
                 @endif
                 @endif
             </div>
         </div>
         <div class="form-group row mb-2">
-            <label class="col-sm-2"> student phone </label>
+            <label class="col-sm-2"> card set </label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="student_phone" required placeholder="student_phone "
-                    minlength="10" maxlength="10" value="{{ $student_phone}}">
+                <input type="text" class="form-control" name="set_name" required placeholder="set_name "
+                    minlength="3" value="{{ $set_name }}">
                 @if(isset($errors))
-                @if($errors->has('student_name'))
-                <div class="text-danger"> {{ $errors->first('student_phone') }}</div>
+                @if($errors->has('set_name'))
+                <div class="text-danger"> {{ $errors->first('set_name') }}</div>
                 @endif
                 @endif
             </div>
-        </div>
-
+        </div> 
+      
        
 
         <div class="form-group row mb-2">
             <label class="col-sm-2"> Pic </label>
             <div class="col-sm-6">
                 old img <br>
-                <img src="{{ asset('storage/' . $student_img) }}" width="200px"> <br>
+                <img src="{{ asset('storage/' . $card_img) }}" width="200px"> <br>
                 choose new image <br>
-                <input type="file" name="student_img" placeholder="student_img" accept="image/*">
+                <input type="file" name="card_img" placeholder="card_img" accept="image/*">
                 @if(isset($errors))
-                @if($errors->has('student_img'))
-                <div class="text-danger"> {{ $errors->first('student_img') }}</div>
+                @if($errors->has('card_img'))
+                <div class="text-danger"> {{ $errors->first('card_img') }}</div>
                 @endif
                 @endif
             </div>
@@ -68,9 +80,9 @@
         <div class="form-group row mb-2">
             <label class="col-sm-2"> </label>
             <div class="col-sm-5">
-                <input type="hidden" name="oldImg" value="{{ $student_img }}">
+                <input type="hidden" name="oldImg" value="{{ $card_img }}">
                 <button type="submit" class="btn btn-primary"> Update </button>
-                <a href="/student" class="btn btn-danger">cancel</a>
+                <a href="/card" class="btn btn-danger">cancel</a>
             </div>
         </div>
 

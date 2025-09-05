@@ -35,9 +35,11 @@
                     <img src="{{ asset('storage/' . $row->card_img) }}" width="100"></td>
                 <td>
                     <b>Name: {{ $row->card_name }}</b> <br>
-                    <b>card Code: {{ $row->card_code }}</b> <br>
-                    <b>Phone: {{ $row->card_phone }}</b> <br>
-                   
+                    <b>card number: {{ $row->card_number }}</b> <br>
+                    <b>Rarity: {{ $row->rarity }}</b> <br>
+                    <b>Set name: {{ $row->set_name }}</b> <br>
+                    <b>Description : {{ $row->description }}</b> <br>
+                    <b>Price : {{ $row->card_price }}</b> <br>
                 </td>
                
                 <td align="center">
